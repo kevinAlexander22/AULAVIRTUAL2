@@ -1,0 +1,76 @@
+﻿@model Aula_Virtual.Models.Secciones
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-container">
+    <h2>Detalles</h2>
+
+    <div>
+        <h4>Secciones</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.clase)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clase)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.hora)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.hora)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.aula)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.aula)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cupos)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cupos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.maestro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.maestro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clases.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clases.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Maestros.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Maestros.nombre)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Inicio", "Index")
+    </p>
+    </div>

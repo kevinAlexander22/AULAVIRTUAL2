@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Aula Virtual</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div>
+        <div class="wrapper">
+            <!--header menu start-->
+            <div class="header">
+                <div class="header-menu">
+                    <div class="title">Universidad <span>UTEC</span></div>
+                    <div class="sidebar-btn">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-search"></i></a></li>
+                        <li><a href="#"><i class="fas fa-bell"></i></a></li>
+                        <li><a href="#"><i class="fas fa-power-off"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--header menu end-->
+            <!--sidebar start-->
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <center class="profile">
+                        <img src="~/Content/Imagenes/avatar.png" alt="">
+                        <p>Alumno</p>
+                    </center>
+
+                    <li class="item">
+                        <a href="@Url.Action("Perfil","Home")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Perfil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","Home")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Calificaciones</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Asiganturas","Home")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Asiganturas</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","usuarios")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Usuarios</span>
+                        </a>
+                    </li>
+
+                    <li class="item">
+                        <a href="@Url.Action("Index","Carreras")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Carreras</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","Estudiantes")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Estudiantes</span>
+                        </a>
+                    </li>
+
+                    <li class="item">
+                        <a href="@Url.Action("Index","clases")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Clases</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","Secciones")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Secciones</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","Maestros")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Maestros</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Index","materias")" class="menu-btn">
+                            <i class="fas fa-info-circle"></i><span>Materias</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+            <!--sidebar end-->
+            <!--main container start-->
+
+
+
+
+
+            <div class="container body-content">
+                @RenderBody()
+              
+                <footer>
+                    <p>&copy; @DateTime.Now.Year </p>
+                </footer>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+</body>
+</html>

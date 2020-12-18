@@ -1,0 +1,91 @@
+﻿@model Aula_Virtual.Models.Estudiantes
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-container">
+    <h2>Eliminar</h2>
+
+
+    <div>
+        <h4>Estudiantes</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombres)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombres)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.apellidos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.edad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.edad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaNacimiento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaNacimiento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.carrera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.carrera)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Carreras.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Carreras.Nombre)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                @Html.ActionLink("Inicio", "Index")
+            </div>
+        }
+    </div>
+    </div>

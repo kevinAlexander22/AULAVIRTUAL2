@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AulaVirtualModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_estudiante_carrera" FromRole="Carreras" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="clas">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Secciones" Relationship="Self.FK_Secciones_clases" FromRole="clases" ToRole="Secciones" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaNacimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="carrera" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Carrera1" Relationship="Self.FK_estudiante_carrera" FromRole="Estudiantes" ToRole="Carreras" />
+    <NavigationProperty Name="Matriculas" Relationship="Self.FK_Matricula_estudiante" FromRole="Estudiantes" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Maestro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="especialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="materias" Relationship="Self.FK_materia_maestro" FromRole="Maestros" ToRole="materia" />
+    <NavigationProperty Name="Secciones" Relationship="Self.FK_Secciones_maestro" FromRole="Maestros" ToRole="Secciones" />
+  </EntityType>
+  <EntityType Name="materia">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" />
+    <NavigationProperty Name="Maestro" Relationship="Self.FK_materia_maestro" FromRole="materia" ToRole="Maestros" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estudiante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="seccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idEstudiante" Type="Int32" />
+    <Property Name="idSeccion" Type="Int32" />
+    <NavigationProperty Name="Estudiante1" Relationship="Self.FK_Matricula_estudiante" FromRole="Matricula" ToRole="Estudiantes" />
+    <NavigationProperty Name="Seccione" Relationship="Self.FK_Matricula_seccion" FromRole="Matricula" ToRole="Secciones" />
+  </EntityType>
+  <EntityType Name="Seccione">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="hora" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="aula" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cupos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="maestro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idMaestro" Type="Int32" />
+    <NavigationProperty Name="clas" Relationship="Self.FK_Secciones_clases" FromRole="Secciones" ToRole="clases" />
+    <NavigationProperty Name="Maestro1" Relationship="Self.FK_Secciones_maestro" FromRole="Secciones" ToRole="Maestros" />
+    <NavigationProperty Name="Matriculas" Relationship="Self.FK_Matricula_seccion" FromRole="Secciones" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_estudiante_carrera">
+    <End Role="Carreras" Type="Self.Carrera" Multiplicity="0..1" />
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carreras">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Secciones_clases">
+    <End Role="clases" Type="Self.clas" Multiplicity="0..1" />
+    <End Role="Secciones" Type="Self.Seccione" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clases">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Secciones">
+        <PropertyRef Name="codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_estudiante">
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="idEstudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materia_maestro">
+    <End Role="Maestros" Type="Self.Maestro" Multiplicity="0..1" />
+    <End Role="materia" Type="Self.materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maestros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="materia">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Secciones_maestro">
+    <End Role="Maestros" Type="Self.Maestro" Multiplicity="0..1" />
+    <End Role="Secciones" Type="Self.Seccione" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maestros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Secciones">
+        <PropertyRef Name="idMaestro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_seccion">
+    <End Role="Secciones" Type="Self.Seccione" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Secciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="idSeccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AulaVirtualEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carreras" EntityType="Self.Carrera" />
+    <EntitySet Name="clases" EntityType="Self.clas" />
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+    <EntitySet Name="Maestros" EntityType="Self.Maestro" />
+    <EntitySet Name="materias" EntityType="Self.materia" />
+    <EntitySet Name="Matriculas" EntityType="Self.Matricula" />
+    <EntitySet Name="Secciones" EntityType="Self.Seccione" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_estudiante_carrera" Association="Self.FK_estudiante_carrera">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Secciones_clases" Association="Self.FK_Secciones_clases">
+      <End Role="clases" EntitySet="clases" />
+      <End Role="Secciones" EntitySet="Secciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_estudiante" Association="Self.FK_Matricula_estudiante">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materia_maestro" Association="Self.FK_materia_maestro">
+      <End Role="Maestros" EntitySet="Maestros" />
+      <End Role="materia" EntitySet="materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Secciones_maestro" Association="Self.FK_Secciones_maestro">
+      <End Role="Maestros" EntitySet="Maestros" />
+      <End Role="Secciones" EntitySet="Secciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_seccion" Association="Self.FK_Matricula_seccion">
+      <End Role="Secciones" EntitySet="Secciones" />
+      <End Role="Matricula" EntitySet="Matriculas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

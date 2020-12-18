@@ -1,0 +1,75 @@
+﻿@model Aula_Virtual.Models.Maestros
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-container">
+    <h2>Eliminar</h2>
+
+ 
+    <div>
+        <h4>Maestros</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.apellido)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.apellido)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.edad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.edad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.especialidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.especialidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                @Html.ActionLink("Inicio", "Index")
+            </div>
+        }
+    </div>
+    </div>

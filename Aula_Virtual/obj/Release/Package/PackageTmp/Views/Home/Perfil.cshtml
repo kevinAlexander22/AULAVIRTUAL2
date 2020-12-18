@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+
+
+
+
+
+    <!--ESPACIOS DE COLORES-->
+    <div class="container">
+        <div class="row">
+            <div class="card-021">
+                <h2 class="textPerfil">Detalles de Usuario</h2>
+                <img src="~/Content/Imagenes/avatar.png" class="fotoPerfil" alt="" height="165px" width="165px">
+                <br>
+                <h3 class="textInfo">Dirección de correo: <span>2540632019@mail.utec.edu.sv</span></h3>
+                <h3 class="textInfo">Carrera: <span>Ingenieria en Sistemas</span></h3>
+                <h1 class="textInfo">Alumno</h1>
+            </div>
+            <div class="card-02">
+                <h2 class="textPerfil">Detalles de Usuario</h2>
+                <h3 class="textPerfil">Pais: <span>El Salvador</span></h3>
+                <h3 class="textPerfil">Ciudad: <span>San Salvador</span></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card-01">
+                <h2 class="textPerfil">Detalles del ciclo:</h2>
+                <h3 class="textPerfil">- <span>Programacion 2</span></h3>
+                <h3 class="textPerfil">- <span>Matematicas 4</span></h3>
+                <h3 class="textPerfil">- <span>Desarrollo Web</span></h3>
+                <h3 class="textPerfil">- <span>Filosofia</span></h3>
+                <h3 class="textPerfil">- <span>Fisica 2</span></h3>
+                <h3 class="textPerfil">- <span>Practica de Fisica 2</span></h3>
+            </div>
+            <div class="card-01">
+                <h2 class="textPerfil">Descripción:</h2>
+            </div>
+            <div class="card-013">
+                <h2 class="textPerfil">Ultima Actividad:</h2>
+                <h3 class="textPerfil">Primer Acceso al sitio:<br>- <span class="actividad">------</span></h3>
+                <h3 class="textPerfil">Ultimo Acceso al sitio:<br>- <span class="actividad">------</span></h3>
+            </div>
+        </div>
+        <div>
+            <div class="row"></div>
+            <div class="card-03"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--wrapper end-->
+<script type="text/javascript">
+            $(document).ready(function() {
+                $(".sidebar-btn").click(function() {
+                    $(".wrapper").toggleClass("collapse");
+                });
+            });
+
+</script>
+

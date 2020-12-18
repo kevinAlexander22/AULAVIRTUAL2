@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="form">
+    <!--login form start-->
+    <form class="login-form" action="@Url.Content("~/Acceso/Login")" method="post">
+        <i class="fas fa-user-circle"></i>
+        <input class="user-input" type="text" name="User" placeholder="Carné:" required>
+        <input class="user-input" type="password" name="Pass" placeholder="Contraseña:" required>
+        <div class="options-01">
+            <label class="remember-me"><input type="checkbox" name="">Recuerdame</label>
+            <a href="#">Olvidaste tu contraseña?</a>
+        </div>
+        <input class="btn" type="submit" name="" value="INICIAR SESION">
+        <div class="options-02">
+            <p>¿No registrado? <a href="#"> Create una cuenta</a></p>
+        </div>
+    </form>
+    <!--login form end-->
+    <!--signup form start-->
+    <form class="signup-form" action="" method="post">
+        <i class="fas fa-user-plus"></i>
+        <input class="user-input" type="text" name="" placeholder="Nombre de Usuario" required>
+        <input class="user-input" type="email" name="" placeholder="Direccion de correo electronico" required>
+        <input class="user-input" type="password" name="" placeholder="Contraseña" required>
+        <input class="btn" type="submit" name="" value="REGISTRATE">
+        <div class="options-02">
+            <p>¿Ya registrado?  <a href="#">Registrarse</a></p>
+        </div>
+    </form>
+    <!--signup form end-->
+</div>
+
